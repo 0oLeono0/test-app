@@ -41,6 +41,7 @@ export function MatchesScreen() {
                 key={value}
                 accessibilityRole="button"
                 accessibilityState={{ selected: filter === value }}
+                aria-pressed={filter === value}
                 onPress={() => setFilter(value)}
                 style={[styles.filter, filter === value && styles.filterSelected]}
               >
