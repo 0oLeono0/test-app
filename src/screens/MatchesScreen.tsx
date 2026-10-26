@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { MatchCard } from '../components/MatchCard';
+import { UpdatedAgo } from '../components/UpdatedAgo';
 import { useMatches } from '../hooks/useMatches';
 import { useFavorites } from '../hooks/useFavorites';
 import { type MatchFilter, filterMatches } from '../matches';
@@ -12,7 +13,7 @@ const filters: { value: MatchFilter; label: string }[] = [
 ];
 
 export function MatchesScreen() {
-  const { state, retry } = useMatches();
+  const { state, retry, refresh } = useMatches();
   const [filter, setFilter] = useState<MatchFilter>('all');
   const { favorites, isFavorite, toggle } = useFavorites();
 
@@ -37,6 +38,27 @@ export function MatchesScreen() {
       {state.status === 'success' && (
         <>
           <Text style={styles.round}>Тур {state.data.round}</Text>
+          <View style={styles.refreshRow}>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ disabled: state.refreshing }}
+              aria-disabled={state.refreshing}
+              disabled={state.refreshing}
+              onPress={refresh}
+              style={[styles.button, state.refreshing && styles.disabled]}
+            >
+              <Text style={styles.buttonText}>{state.refreshing ? 'Обновление…' : 'Обновить'}</Text>
+            </Pressable>
+            <UpdatedAgo since={state.updatedAt} />
+          </View>
+          {state.refreshError && (
+            <View style={styles.refreshError}>
+              <Text style={styles.error}>Не удалось обновить матчи. Показаны последние загруженные данные.</Text>
+              <Pressable accessibilityRole="button" onPress={retry} style={styles.button}>
+                <Text style={styles.buttonText}>Повторить</Text>
+              </Pressable>
+            </View>
+          )}
           <View style={styles.filters}>
             {filters.map(({ value, label }) => (
               <Pressable
@@ -90,6 +112,9 @@ const styles = StyleSheet.create({
     color: '#111827',
   },
   round: { fontSize: 16, lineHeight: 24, color: '#4b5563', marginVertical: 16 },
+  refreshRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 8, marginBottom: 16 },
+  refreshError: { gap: 8, marginBottom: 16, alignItems: 'flex-start' },
+  disabled: { opacity: 0.6 },
   filters: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 16 },
   filter: { minHeight: 44, padding: 12, borderRadius: 8, backgroundColor: '#f3f4f6', justifyContent: 'center' },
   filterSelected: { backgroundColor: '#1d4ed8' },
