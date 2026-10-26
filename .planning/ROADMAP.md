@@ -6,7 +6,7 @@ Deliver the README assignment as five compact vertical MVP slices, using the sel
 
 ## Phases
 
-- [ ] **Phase 1: Load and Display Matches** — HTTP-loaded match cards and complete initial request states.
+- [x] **Phase 1: Load and Display Matches** — HTTP-loaded match cards and complete initial request states. (completed 2026-10-26)
 - [ ] **Phase 2: Filter the Round** — Three status filters with explicit edge-case behavior.
 - [ ] **Phase 3: Reliable Favorites** — Independent, visible favorite toggles across filters.
 - [ ] **Phase 4: Refresh and Freshness** — Manual refresh and accurate time since successful loading.
@@ -15,6 +15,7 @@ Deliver the README assignment as five compact vertical MVP slices, using the sel
 ## Phase Details
 
 ### Phase 1: Load and Display Matches
+
 **Goal:** User can load and inspect the round's matches, including nullable data and recoverable request states.
 **Mode:** mvp
 **Depends on:** Nothing (first phase)
@@ -26,7 +27,8 @@ Deliver the README assignment as five compact vertical MVP slices, using the sel
 3. Valid kickoff times display in the device timezone, and long names remain readable in a narrow viewport.
 4. Pending, failed, and empty responses show distinct loading, error/retry, and empty states; retry can recover to the list.
 5. Production loading still uses MATCHES_URL; its placeholder endpoint is explicitly resolved or reported as a remaining validation blocker.
-**Plans:** 1 plan
+
+**Plans:** 1/1 plans complete
 
 Plans:
 - [x] 01-01-PLAN.md — Validated HTTP-to-card tracer, recoverable request states, and browser verification.
@@ -34,6 +36,7 @@ Plans:
 **Verification:** gaps_found — implementation and controlled checks pass; unchanged MATCHES_URL returns 404. User chose to record this endpoint gap. No phase completion/transition claimed.
 
 ### Phase 2: Filter the Round
+
 **Goal:** User can narrow the displayed round by status without losing exceptional matches from All.
 **Mode:** mvp
 **Depends on:** Phase 1
@@ -43,9 +46,11 @@ Plans:
 1. «Все», «Предстоящие», and «Завершённые» appear above the list with a visible selected state.
 2. The supplied fixture yields eight, three, and three matches respectively; live/postponed remain in All only.
 3. Empty filtered results have a clear message and the user can switch back to All.
+
 **Plans:** TBD
 
 ### Phase 3: Reliable Favorites
+
 **Goal:** User can reliably favorite individual matches and keep that state through list changes.
 **Mode:** mvp
 **Depends on:** Phase 2
@@ -56,9 +61,11 @@ Plans:
 2. Repeated and rapid toggles visibly affect only the selected match, including the first favorite and multiple independent favorites.
 3. Switching filters preserves favorites by ID; the existing FavoriteButton remains connected through active/onPress.
 4. Rerendering the same loaded match IDs preserves favorites; Phase 4 rechecks this through actual refresh.
+
 **Plans:** TBD
 
 ### Phase 4: Refresh and Freshness
+
 **Goal:** User can reload matches and trust the elapsed-time label as the age of the last successful response.
 **Mode:** mvp
 **Depends on:** Phase 3
@@ -69,9 +76,11 @@ Plans:
 2. «Обновлено N сек назад» advances beyond one second, resets after successful refresh, and uses elapsed wall-clock time rather than accumulated ticks.
 3. Failed refresh keeps existing cards and last-success age visible, shows an error, and offers recovery.
 4. Remounting UpdatedAgo does not leave old intervals running; stale or overlapping responses cannot overwrite newer successful data.
+
 **Plans:** TBD
 
 ### Phase 5: Verify and Explain
+
 **Goal:** Reviewer can run and assess the completed assignment and understand the actual bug causes and tradeoffs.
 **Mode:** mvp
 **Depends on:** Phase 4
@@ -82,6 +91,7 @@ Plans:
 2. SOLUTION.md records filter policy, nullable/zero data handling, actual time, work completed/remaining, AI usage and checks, and proposed improvements.
 3. npx tsc --noEmit passes, npm run web serves the app, and the required loading/error/empty/filter/favorite/refresh behaviors are checked with controlled HTTP responses.
 4. Remaining endpoint limitations and any Expo Go checks not performed are explicitly recorded; changes add no native dependency requiring a development build.
+
 **Plans:** TBD
 
 ## Progress
@@ -90,7 +100,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Load and Display Matches | 1/1 | Needs Review: endpoint gap | - |
+| 1. Load and Display Matches | 1/1 | Complete    | 2026-10-26 |
 | 2. Filter the Round | 0/TBD | Not started | - |
 | 3. Reliable Favorites | 0/TBD | Not started | - |
 | 4. Refresh and Freshness | 0/TBD | Not started | - |

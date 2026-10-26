@@ -1,20 +1,23 @@
 ---
 phase: 01-load-and-display-matches
 verified: "2026-10-26"
-status: gaps_found
+status: passed
+override: User explicitly authorized treating the unchanged endpoint gap as non-blocking and continuing all remaining phases on 2026-10-26.
 score: 7/8 requirements verified; MATCH-01 client path passes controlled checks but live feed is unavailable
 covered_files:
   - .planning/phases/01-load-and-display-matches/01-01-PLAN.md
+  - .planning/phases/01-load-and-display-matches/01-01-SUMMARY.md
   - src/components/MatchCard.tsx
   - src/config.ts
   - src/hooks/useMatches.ts
   - src/matches.ts
   - src/screens/MatchesScreen.tsx
   - tests/matches.test.mjs
-covered_digest: v3:sha256:bb8755252c39a02361371c6649997615ec0473bfe084720ddb0d411e5c7cb47b
+covered_digest: v3:sha256:c4701845f48b40fd77714ca5f5e7958b9bc948b5419687a190bd771bc2be7ad2
 gaps:
   - truth: User can load matches from the real configured HTTP endpoint.
-    status: failed
+    status: overridden
+    override: Accepted by the user for progression; live HTTP success remains unverified.
     reason: MATCHES_URL contains OWNER/REPO and returns HTTP 404. User explicitly chose to keep it unchanged and record this gap.
     artifacts:
       - path: src/config.ts
@@ -31,7 +34,7 @@ human_verification:
 
 ## Verdict
 
-Implementation plan completed. Phase goal is **not fully verified** because its configured production URL returns 404. The user explicitly accepted retaining the URL and recording this limitation. Controlled responses prove the client implementation without concealing the production limitation.
+Implementation plan completed. Passed for progression with an explicit user override of live-endpoint verification on 2026-10-26. The configured production URL still returns 404; live loading is not verified. Controlled responses prove the client implementation without concealing that limitation.
 
 ## Requirement Evidence
 
@@ -64,4 +67,4 @@ Inline source review found no unresolved critical/warning code defects. T-1-01 i
 
 ## Next Action
 
-Keep this accepted endpoint limitation visible. Do not invent an endpoint or automatically mark MATCH-01 / Phase 1 fully verified. An authoritative URL and a live success check can close this gap later. Later-phase work remains scoped in the roadmap; no transition is run by this automatic execution.
+Keep this accepted endpoint limitation visible. User authorized continuing the remaining phases with it treated as non-blocking. MATCH-01 remains accepted with a waiver of live verification, not proven remote success. An authoritative URL and a live success check can close the limitation later.
