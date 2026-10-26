@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import {
   formatKickoff,
+  filterMatches,
   formatScore,
   getStatusLabel,
   parseMatchesResponse,
@@ -73,4 +74,18 @@ test('rejects duplicate match IDs to protect stable list identity', () => {
   const duplicate = structuredClone(fixture);
   duplicate.matches[1].id = duplicate.matches[0].id;
   assert.throws(() => parseMatchesResponse(duplicate));
+});
+
+test('filters by server status, preserves order and never mutates input', () => {
+  const matches = structuredClone(fixture.matches);
+  const before = structuredClone(matches);
+  assert.equal(filterMatches(matches, 'all').length, 8);
+  assert.deepEqual(filterMatches(matches, 'upcoming').map(m => m.id), ['m5', 'm6', 'm8']);
+  assert.deepEqual(filterMatches(matches, 'finished').map(m => m.id), ['m1', 'm2', 'm3']);
+  assert.deepEqual(matches, before);
+  assert.deepEqual(filterMatches([], 'upcoming'), []);
+  const unknown = [{ ...matches[0], status: 'cancelled' }];
+  assert.equal(filterMatches(unknown, 'all').length, 1);
+  assert.equal(filterMatches(unknown, 'upcoming').length, 0);
+  assert.equal(filterMatches(unknown, 'finished').length, 0);
 });

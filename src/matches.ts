@@ -9,6 +9,12 @@ export type Match = {
   score: Score | null;
 };
 export type MatchesResponse = { round: number; matches: Match[] };
+export type MatchFilter = 'all' | 'upcoming' | 'finished';
+
+export function filterMatches(matches: Match[], filter: MatchFilter): Match[] {
+  if (filter === 'all') return matches;
+  return matches.filter((match) => match.status === (filter === 'upcoming' ? 'scheduled' : 'finished'));
+}
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);

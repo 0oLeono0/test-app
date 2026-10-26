@@ -1,9 +1,18 @@
+import { useState } from 'react';
 import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { MatchCard } from '../components/MatchCard';
 import { useMatches } from '../hooks/useMatches';
+import { type MatchFilter, filterMatches } from '../matches';
+
+const filters: { value: MatchFilter; label: string }[] = [
+  { value: 'all', label: 'Все' },
+  { value: 'upcoming', label: 'Предстоящие' },
+  { value: 'finished', label: 'Завершённые' },
+];
 
 export function MatchesScreen() {
   const { state, retry } = useMatches();
+  const [filter, setFilter] = useState<MatchFilter>('all');
 
   return (
     <View style={styles.container}>
@@ -26,16 +35,33 @@ export function MatchesScreen() {
       {state.status === 'success' && (
         <>
           <Text style={styles.round}>Тур {state.data.round}</Text>
+          <View style={styles.filters}>
+            {filters.map(({ value, label }) => (
+              <Pressable
+                key={value}
+                accessibilityRole="button"
+                accessibilityState={{ selected: filter === value }}
+                onPress={() => setFilter(value)}
+                style={[styles.filter, filter === value && styles.filterSelected]}
+              >
+                <Text style={[styles.filterText, filter === value && styles.buttonText]}>{label}</Text>
+              </Pressable>
+            ))}
+          </View>
           <FlatList
-            data={state.data.matches}
+            data={filterMatches(state.data.matches, filter)}
             keyExtractor={(match) => match.id}
             renderItem={({ item }) => <MatchCard match={item} />}
             contentContainerStyle={styles.listContent}
             ListEmptyComponent={
               <View style={styles.message}>
-                <Text style={styles.emptyTitle}>Матчей пока нет</Text>
+                <Text style={styles.emptyTitle}>
+                  {state.data.matches.length === 0 ? 'Матчей пока нет' : 'Нет матчей по этому фильтру'}
+                </Text>
                 <Text style={styles.body}>
-                  Матчи появятся здесь, когда будет опубликовано расписание.
+                  {state.data.matches.length === 0
+                    ? 'Матчи появятся здесь, когда будет опубликовано расписание.'
+                    : 'Выберите другой фильтр, чтобы увидеть матчи.'}
                 </Text>
               </View>
             }
@@ -58,6 +84,10 @@ const styles = StyleSheet.create({
     color: '#111827',
   },
   round: { fontSize: 16, lineHeight: 24, color: '#4b5563', marginVertical: 16 },
+  filters: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 16 },
+  filter: { minHeight: 44, padding: 12, borderRadius: 8, backgroundColor: '#f3f4f6', justifyContent: 'center' },
+  filterSelected: { backgroundColor: '#1d4ed8' },
+  filterText: { fontSize: 16, lineHeight: 24, color: '#111827' },
   listContent: { paddingBottom: 16 },
   message: { gap: 12, paddingVertical: 24, alignItems: 'flex-start' },
   body: { fontSize: 16, lineHeight: 24, color: '#4b5563' },
