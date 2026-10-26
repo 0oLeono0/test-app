@@ -21,9 +21,9 @@
 
 ### Status Filters
 
-- [ ] **FILTER-01**: User can select «Все», «Предстоящие», and «Завершённые» above the list.
-- [ ] **FILTER-02**: User sees scheduled matches under Upcoming and finished matches under Finished, regardless of current date; live/postponed remain visible in All.
-- [ ] **FILTER-03**: User sees an understandable empty result when a selected filter has no matches.
+- [x] **FILTER-01**: User can select «Все», «Предстоящие», and «Завершённые» above the list.
+- [x] **FILTER-02**: User sees scheduled matches under Upcoming and finished matches under Finished, regardless of current date; live/postponed remain visible in All.
+- [x] **FILTER-03**: User sees an understandable empty result when a selected filter has no matches.
 
 ### Favorites
 
@@ -80,9 +80,9 @@ Every v1 requirement maps to exactly one phase. All remain pending until impleme
 | LOAD-01 | Phase 1 | Complete |
 | LOAD-02 | Phase 1 | Complete |
 | LOAD-03 | Phase 1 | Complete |
-| FILTER-01 | Phase 2 | Pending |
-| FILTER-02 | Phase 2 | Pending |
-| FILTER-03 | Phase 2 | Pending |
+| FILTER-01 | Phase 2 | Complete |
+| FILTER-02 | Phase 2 | Complete |
+| FILTER-03 | Phase 2 | Complete |
 | FAV-01 | Phase 3 | Pending |
 | FAV-02 | Phase 3 | Pending |
 | FAV-03 | Phase 3 | Pending |

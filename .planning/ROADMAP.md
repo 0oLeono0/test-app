@@ -7,7 +7,7 @@ Deliver the README assignment as five compact vertical MVP slices, using the sel
 ## Phases
 
 - [x] **Phase 1: Load and Display Matches** — HTTP-loaded match cards and complete initial request states. (completed 2026-10-26)
-- [ ] **Phase 2: Filter the Round** — Three status filters with explicit edge-case behavior.
+- [x] **Phase 2: Filter the Round** — Three status filters with explicit edge-case behavior. (completed 2026-10-26)
 - [ ] **Phase 3: Reliable Favorites** — Independent, visible favorite toggles across filters.
 - [ ] **Phase 4: Refresh and Freshness** — Manual refresh and accurate time since successful loading.
 - [ ] **Phase 5: Verify and Explain** — Combined behavior checks and concise SOLUTION.md.
@@ -101,7 +101,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Load and Display Matches | 1/1 | Complete    | 2026-10-26 |
-| 2. Filter the Round | 0/TBD | Not started | - |
+| 2. Filter the Round | 1/1 | Complete    | 2026-10-26 |
 | 3. Reliable Favorites | 0/TBD | Not started | - |
 | 4. Refresh and Freshness | 0/TBD | Not started | - |
 | 5. Verify and Explain | 0/TBD | Not started | - |
