@@ -42,7 +42,7 @@ Validated HTTP-to-card rendering and recovery states work against controlled res
 - Shows initial loading, empty, and HTTP/network/JSON/shape error states with retry; a 15-second timeout is recoverable.
 - Reuses existing entry and dependencies. Filters, favorites and elapsed-time fixes remain for later phases.
 
-## Verification
+## Test Evidence
 
 - RED: node --test tests/matches.test.mjs failed before the domain module existed.
 - GREEN: all 8 tests pass; npx tsc --noEmit exits 0.
