@@ -33,9 +33,9 @@
 
 ### Refresh and Freshness
 
-- [ ] **REFRESH-01**: User can request fresh data through «Обновить» or pull-to-refresh and sees that the refresh is pending.
-- [ ] **REFRESH-02**: User sees «Обновлено N сек назад» advance with elapsed wall-clock time from the last successful load and reset after another success.
-- [ ] **REFRESH-03**: User retains previously loaded matches and the last-success freshness timestamp after a failed refresh, with an error and a recovery action.
+- [x] **REFRESH-01**: User can request fresh data through «Обновить» or pull-to-refresh and sees that the refresh is pending.
+- [x] **REFRESH-02**: User sees «Обновлено N сек назад» advance with elapsed wall-clock time from the last successful load and reset after another success.
+- [x] **REFRESH-03**: User retains previously loaded matches and the last-success freshness timestamp after a failed refresh, with an error and a recovery action.
 
 ### Delivery and Understanding
 
@@ -86,9 +86,9 @@ Every v1 requirement maps to exactly one phase. All remain pending until impleme
 | FAV-01 | Phase 3 | Complete |
 | FAV-02 | Phase 3 | Complete |
 | FAV-03 | Phase 3 | Complete |
-| REFRESH-01 | Phase 4 | Pending |
-| REFRESH-02 | Phase 4 | Pending |
-| REFRESH-03 | Phase 4 | Pending |
+| REFRESH-01 | Phase 4 | Complete |
+| REFRESH-02 | Phase 4 | Complete |
+| REFRESH-03 | Phase 4 | Complete |
 | DOC-01 | Phase 5 | Pending |
 | DOC-02 | Phase 5 | Pending |
 | VERIFY-01 | Phase 5 | Pending |

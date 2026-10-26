@@ -1,17 +1,15 @@
 ---
 phase: "4"
 slug: refresh-and-freshness
-status: draft
-nyquist_compliant: false
+status: validated
+nyquist_compliant: true
 wave_0_complete: true
 created: "2026-10-26"
 ---
 
-# Phase 4 Validation
+# Phase 4 Validation Evidence
 
-Quick: npx tsc --noEmit. Full domain suite: node --test tests/matches.test.mjs. Existing Node 24 runner needs no packages. Run types/domain tests after each implementation task, and browser checks before completing the phase. Failure means nonzero exit, failed assertions, missing expected controls or incorrect observed states.
+npx tsc --noEmit and nine domain tests pass. Browser clock checks: age advances to 3s, resets after success, remains 5s after failed refresh then advances to 7s. Ten-minute system-time jump produces elapsed age rather than one tick. Pending refresh keeps three filtered cards, disables the button and blocks duplicate click requests. Failure and 15s timeout retain cards and recover via retry; filter and favorite survive all refreshes. Six requests observed, zero pageerror events. Interval cleanup and changed-since dependency confirmed in source.
 
-Browser verify RED before fix: no refresh control/elapsed label. GREEN: pending refresh keeps cards, button disables, elapsed age progresses beyond one second, successful response resets age, failed refresh keeps existing cards and increasing age then retry recovers. Use browser clock jump to detect counting-ticks drift. Filter/favorite state survives successful and failed refresh. Inspect interval cleanup.
-
-No watch-mode commands. Existing domain test infrastructure covers Wave 0. Browser verification is performed with intercepted responses and recorded separately from the accepted unavailable real feed. Expo Go device validation remains unperformed unless a real session becomes available.
+Types/domain commands completed successfully. Browser checks use controlled HTTP responses; unchanged real-feed 404 is explicitly waived for progression. Expo Go device test was not performed.
 
