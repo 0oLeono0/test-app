@@ -8,16 +8,16 @@
 ### Match Loading and Presentation
 
 - [ ] **MATCH-01**: User can load the round's matches over HTTP from MATCHES_URL; unsuccessful HTTP/JSON responses produce an error rather than false success.
-- [ ] **MATCH-02**: User can see home and away club names on every match card, including long names without losing essential content.
-- [ ] **MATCH-03**: User can see a supplied score including 0–0, and a clear no-score state when score is null.
-- [ ] **MATCH-04**: User can see kickoff date/time in the device timezone, and a clear unknown-time label when startsAt is null.
-- [ ] **MATCH-05**: User can read a Russian label for scheduled, finished, live, and postponed statuses.
+- [x] **MATCH-02**: User can see home and away club names on every match card, including long names without losing essential content.
+- [x] **MATCH-03**: User can see a supplied score including 0–0, and a clear no-score state when score is null.
+- [x] **MATCH-04**: User can see kickoff date/time in the device timezone, and a clear unknown-time label when startsAt is null.
+- [x] **MATCH-05**: User can read a Russian label for scheduled, finished, live, and postponed statuses.
 
 ### Request States
 
-- [ ] **LOAD-01**: User sees a loading indicator while the initial request is pending.
-- [ ] **LOAD-02**: User sees an understandable error and can retry the failed load with «Повторить».
-- [ ] **LOAD-03**: User sees an understandable empty state when the server returns no matches.
+- [x] **LOAD-01**: User sees a loading indicator while the initial request is pending.
+- [x] **LOAD-02**: User sees an understandable error and can retry the failed load with «Повторить».
+- [x] **LOAD-03**: User sees an understandable empty state when the server returns no matches.
 
 ### Status Filters
 
@@ -72,14 +72,14 @@ Every v1 requirement maps to exactly one phase. All remain pending until impleme
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| MATCH-01 | Phase 1 | Pending |
-| MATCH-02 | Phase 1 | Pending |
-| MATCH-03 | Phase 1 | Pending |
-| MATCH-04 | Phase 1 | Pending |
-| MATCH-05 | Phase 1 | Pending |
-| LOAD-01 | Phase 1 | Pending |
-| LOAD-02 | Phase 1 | Pending |
-| LOAD-03 | Phase 1 | Pending |
+| MATCH-01 | Phase 1 | Blocked: accepted endpoint gap |
+| MATCH-02 | Phase 1 | Complete |
+| MATCH-03 | Phase 1 | Complete |
+| MATCH-04 | Phase 1 | Complete |
+| MATCH-05 | Phase 1 | Complete |
+| LOAD-01 | Phase 1 | Complete |
+| LOAD-02 | Phase 1 | Complete |
+| LOAD-03 | Phase 1 | Complete |
 | FILTER-01 | Phase 2 | Pending |
 | FILTER-02 | Phase 2 | Pending |
 | FILTER-03 | Phase 2 | Pending |

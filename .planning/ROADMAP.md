@@ -29,7 +29,9 @@ Deliver the README assignment as five compact vertical MVP slices, using the sel
 **Plans:** 1 plan
 
 Plans:
-- [ ] 01-01-PLAN.md — Validated HTTP-to-card tracer, recoverable request states, and browser verification.
+- [x] 01-01-PLAN.md — Validated HTTP-to-card tracer, recoverable request states, and browser verification.
+
+**Verification:** gaps_found — implementation and controlled checks pass; unchanged MATCHES_URL returns 404. User chose to record this endpoint gap. No phase completion/transition claimed.
 
 ### Phase 2: Filter the Round
 **Goal:** User can narrow the displayed round by status without losing exceptional matches from All.
@@ -88,7 +90,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Load and Display Matches | 0/TBD | Not started | - |
+| 1. Load and Display Matches | 1/1 | Needs Review: endpoint gap | - |
 | 2. Filter the Round | 0/TBD | Not started | - |
 | 3. Reliable Favorites | 0/TBD | Not started | - |
 | 4. Refresh and Freshness | 0/TBD | Not started | - |
