@@ -14,6 +14,12 @@ export function useMatches() {
   useEffect(() => {
     let active = true;
     const controller = new AbortController();
+    const timeout = setTimeout(() => {
+      // Commit the recoverable state even if a transport ignores cancellation.
+      if (active) setState({ status: 'error' });
+      active = false;
+      controller.abort();
+    }, 15_000);
 
     async function load() {
       try {
@@ -23,12 +29,15 @@ export function useMatches() {
         if (active) setState({ status: 'success', data });
       } catch {
         if (active) setState({ status: 'error' });
+      } finally {
+        clearTimeout(timeout);
       }
     }
     void load();
 
     return () => {
       active = false;
+      clearTimeout(timeout);
       controller.abort();
     };
   }, [attempt]);
