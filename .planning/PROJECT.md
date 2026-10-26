@@ -58,6 +58,7 @@ MATCHES_URL contains the literal OWNER/REPO placeholder. README says not to chan
 | YOLO, parallel independent plans, research/checks/verifier/drift guard, Git tracking | Auto invocation plus explicit configuration reply | Selected |
 | Adaptive model profile | Explicit user selection; retain profile for future GSD work | Selected |
 | No optional PR-body sections | Minimal default for a small assignment; no preference supplied | Default |
+| Keep MATCHES_URL unchanged despite HTTP 404 | User explicitly chose to record the endpoint gap on 2026-10-26 | Confirmed; live loading unresolved |
 | Filters: scheduled → upcoming; finished → finished; live/postponed → All only | Avoid implying a live or postponed match is scheduled; document this agent-selected policy in SOLUTION.md | Proposed |
 | Retain React state and platform primitives | Scope does not justify a state manager or query framework | Proposed |
 

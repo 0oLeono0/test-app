@@ -3,7 +3,7 @@ phase: "1"
 slug: load-and-display-matches
 status: draft
 nyquist_compliant: false
-wave_0_complete: false
+wave_0_complete: true
 created: "2026-10-26"
 ---
 
@@ -27,7 +27,7 @@ Typecheck after every task; domain tests after tasks 1–3 and before final veri
 
 ## Wave 0 Requirements
 
-- [ ] Task 1 creates tests/matches.test.mjs; observe red before domain implementation.
+- [x] Task 1 created tests/matches.test.mjs; observed red before domain implementation, then eight passing tests.
 - No dependency installation required; node:test is bundled with the installed Node runtime.
 
 ## Browser and Manual Verification
@@ -36,4 +36,6 @@ Controlled responses: delayed fixture → loading then eight cards; 503 → erro
 
 ## Validation Sign-Off
 
-Pending execution evidence. Set nyquist_compliant only after sampling and all applicable cases are actually checked. Planning review confirms each task has an automated command with explicit failure conditions.
+Task 1 and 2 automated checks passed; task 3 controlled browser cases passed. Final npx tsc --noEmit exits 0. Domain suite: 8 passed, 0 failed. Browser checks: loading; 503/retry recovery; network; malformed JSON; invalid envelope; empty; narrow layout; timezone; 15-second timeout/retry. No pageerror events observed. Screenshot inspected at 360×800.
+
+Real endpoint verification remains a gap: unchanged MATCHES_URL returns HTTP 404; user explicitly chose to retain it. Expo Go device test was not performed. nyquist_compliant remains false until the required real-feed validation gap is resolved. These limitations do not invalidate the recorded controlled-test results.
