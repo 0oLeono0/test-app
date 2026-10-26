@@ -1,17 +1,15 @@
 ---
 phase: "3"
 slug: reliable-favorites
-status: draft
-nyquist_compliant: false
+status: validated
+nyquist_compliant: true
 wave_0_complete: true
 created: "2026-10-26"
 ---
 
-# Phase 3 Validation
+# Phase 3 Validation Evidence
 
-Quick: npx tsc --noEmit. Full domain suite: node --test tests/matches.test.mjs. Existing Node 24 runner needs no packages. Run types/domain tests after each implementation task, and browser checks before completing the phase. Failure means nonzero exit, failed assertions, missing expected controls or incorrect observed states.
+npx tsc --noEmit and nine domain tests pass. Browser confirms eight inactive stars initially, first favorite membership, independent second selection, 20 rapid toggles with correct parity, removal without affecting the second star, and preserved selection after filter round-trip. Buttons expose team-specific Russian labels, aria-pressed on web and native accessibilityState. Pre-integration RED observed as zero favorite controls. Refresh persistence is rechecked in Phase 4.
 
-Browser RED: verify current cards have no favorite controls. After integration verify all eight stars initially inactive, first favorite becomes active, another remains independent, rapid repeated toggles return expected parity, filter round-trip preserves selection. Recheck refresh preservation in Phase 4. Run domain suite and types.
-
-No watch-mode commands. Existing domain test infrastructure covers Wave 0. Browser verification is performed with intercepted responses and recorded separately from the accepted unavailable real feed. Expo Go device validation remains unperformed unless a real session becomes available.
+Types/domain commands completed successfully. Browser checks use controlled HTTP responses; unchanged real-feed 404 is explicitly waived for progression. Expo Go device test was not performed.
 

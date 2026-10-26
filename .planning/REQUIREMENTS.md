@@ -27,9 +27,9 @@
 
 ### Favorites
 
-- [ ] **FAV-01**: User sees an inactive favorite star for every match on first load when favorites are empty.
-- [ ] **FAV-02**: User can repeatedly toggle one match independently, including rapid interactions and the first stored favorite, with visible state updates.
-- [ ] **FAV-03**: User retains in-memory favorites by match ID while switching filters and refreshing the same matches.
+- [x] **FAV-01**: User sees an inactive favorite star for every match on first load when favorites are empty.
+- [x] **FAV-02**: User can repeatedly toggle one match independently, including rapid interactions and the first stored favorite, with visible state updates.
+- [x] **FAV-03**: User retains in-memory favorites by match ID while switching filters and refreshing the same matches.
 
 ### Refresh and Freshness
 
@@ -83,9 +83,9 @@ Every v1 requirement maps to exactly one phase. All remain pending until impleme
 | FILTER-01 | Phase 2 | Complete |
 | FILTER-02 | Phase 2 | Complete |
 | FILTER-03 | Phase 2 | Complete |
-| FAV-01 | Phase 3 | Pending |
-| FAV-02 | Phase 3 | Pending |
-| FAV-03 | Phase 3 | Pending |
+| FAV-01 | Phase 3 | Complete |
+| FAV-02 | Phase 3 | Complete |
+| FAV-03 | Phase 3 | Complete |
 | REFRESH-01 | Phase 4 | Pending |
 | REFRESH-02 | Phase 4 | Pending |
 | REFRESH-03 | Phase 4 | Pending |
