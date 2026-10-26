@@ -68,12 +68,32 @@ All mandatory behaviors are checked against fixture-backed HTTP responses and fa
 
 ## Traceability
 
-Roadmap creation populates the mapping below. Every v1 requirement must map to exactly one phase.
+Every v1 requirement maps to exactly one phase. All remain pending until implementation is verified.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
+| MATCH-01 | Phase 1 | Pending |
+| MATCH-02 | Phase 1 | Pending |
+| MATCH-03 | Phase 1 | Pending |
+| MATCH-04 | Phase 1 | Pending |
+| MATCH-05 | Phase 1 | Pending |
+| LOAD-01 | Phase 1 | Pending |
+| LOAD-02 | Phase 1 | Pending |
+| LOAD-03 | Phase 1 | Pending |
+| FILTER-01 | Phase 2 | Pending |
+| FILTER-02 | Phase 2 | Pending |
+| FILTER-03 | Phase 2 | Pending |
+| FAV-01 | Phase 3 | Pending |
+| FAV-02 | Phase 3 | Pending |
+| FAV-03 | Phase 3 | Pending |
+| REFRESH-01 | Phase 4 | Pending |
+| REFRESH-02 | Phase 4 | Pending |
+| REFRESH-03 | Phase 4 | Pending |
+| DOC-01 | Phase 5 | Pending |
+| DOC-02 | Phase 5 | Pending |
+| VERIFY-01 | Phase 5 | Pending |
 
-**Coverage:** 20 v1 requirements; mapping pending roadmap creation.
+**Coverage:** 20 v1 requirements; 20 mapped; 0 unmapped.
 
 ---
-*Last updated: 2026-10-26 after requirements definition*
+*Last updated: 2026-10-26 after roadmap traceability mapping*
