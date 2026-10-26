@@ -13,7 +13,7 @@ covered_files:
   - src/matches.ts
   - src/screens/MatchesScreen.tsx
   - tests/matches.test.mjs
-covered_digest: v3:sha256:c4701845f48b40fd77714ca5f5e7958b9bc948b5419687a190bd771bc2be7ad2
+covered_digest: v3:sha256:a66ccfd1846163c085da27ff780bbbf19369b2f62956de4a7e2937f6b41c2ee7
 gaps:
   - truth: User can load matches from the real configured HTTP endpoint.
     status: overridden
@@ -68,3 +68,5 @@ Inline source review found no unresolved critical/warning code defects. T-1-01 i
 ## Next Action
 
 Keep this accepted endpoint limitation visible. User authorized continuing the remaining phases with it treated as non-blocking. MATCH-01 remains accepted with a waiver of live verification, not proven remote success. An authoritative URL and a live success check can close the limitation later.
+
+Final integration regression rechecked after Phase 5: domain suite 9/9, typecheck and controlled browser scenarios pass; live-endpoint override remains explicit.

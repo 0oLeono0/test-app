@@ -1,8 +1,8 @@
 ---
 phase: "1"
 slug: load-and-display-matches
-status: draft
-nyquist_compliant: false
+status: validated
+nyquist_compliant: true
 wave_0_complete: true
 created: "2026-10-26"
 ---
@@ -38,4 +38,4 @@ Controlled responses: delayed fixture → loading then eight cards; 503 → erro
 
 Task 1 and 2 automated checks passed; task 3 controlled browser cases passed. Final npx tsc --noEmit exits 0. Domain suite: 8 passed, 0 failed. Browser checks: loading; 503/retry recovery; network; malformed JSON; invalid envelope; empty; narrow layout; timezone; 15-second timeout/retry. No pageerror events observed. Screenshot inspected at 360×800.
 
-Real endpoint verification remains a gap: unchanged MATCHES_URL returns HTTP 404; user explicitly chose to retain it. Expo Go device test was not performed. nyquist_compliant remains false until the required real-feed validation gap is resolved. These limitations do not invalidate the recorded controlled-test results.
+Real endpoint verification remains unavailable: unchanged MATCHES_URL returns HTTP 404. User explicitly waived this check as a blocker and authorized progression. Expo Go device test was not performed. Validation is complete for the adjusted acceptance scope; no real-feed or native-device success is claimed.

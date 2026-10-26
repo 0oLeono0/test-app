@@ -26,3 +26,5 @@ Final npx tsc --noEmit passes; node --test tests/matches.test.mjs reports 9 pass
 
 All scoped truths, including D-01 and D-02, checked against source and observed behavior. Inline review found no unresolved blocking source issue. Real endpoint remains unchanged and unavailable under the explicit user-authorized waiver; it is not reported as verified. No new native/runtime dependency.
 
+
+Final integration regression rechecked after Phase 5: domain suite 9/9, typecheck and controlled browser scenarios pass; live-endpoint override remains explicit.

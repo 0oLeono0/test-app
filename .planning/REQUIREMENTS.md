@@ -68,11 +68,11 @@ All mandatory behaviors are checked against fixture-backed HTTP responses and fa
 
 ## Traceability
 
-Every v1 requirement maps to exactly one phase. All remain pending until implementation is verified.
+Every v1 requirement maps to exactly one phase. Nineteen are verified; MATCH-01 retains an explicit user-authorized exception for unavailable live-feed verification.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| MATCH-01 | Phase 1 | Blocked: accepted endpoint gap |
+| MATCH-01 | Phase 1 | Accepted override: live endpoint unverified |
 | MATCH-02 | Phase 1 | Complete |
 | MATCH-03 | Phase 1 | Complete |
 | MATCH-04 | Phase 1 | Complete |
@@ -97,3 +97,7 @@ Every v1 requirement maps to exactly one phase. All remain pending until impleme
 
 ---
 *Last updated: 2026-10-26 after roadmap traceability mapping*
+
+## Accepted Verification Override
+
+MATCH-01: implementation and controlled HTTP success verified; unchanged OWNER/REPO URL returns 404. User explicitly authorized treating this limitation as non-blocking and continuing all phases. Live-feed success remains unverified.

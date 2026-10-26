@@ -8,7 +8,7 @@ covered_files:
   - src/matches.ts
   - src/screens/MatchesScreen.tsx
   - tests/matches.test.mjs
-covered_digest: v3:sha256:3ea24238f92e3a4ba1fb705da8da8ebd18a813c4ff2ea5b440daf0b6482178df
+covered_digest: v3:sha256:853552d35f2764a86c5d535a21015b2916af3346a2786af1d0b585685ee755d4
 ---
 
 # Phase 2 Verification
@@ -19,3 +19,5 @@ Nine domain tests and npx tsc --noEmit pass. RED observed for missing filter hel
 
 All scoped truths, including D-01 and D-02, checked against source and observed behavior. Inline review found no unresolved blocking source issue. Real endpoint remains unchanged and unavailable under the explicit user-authorized waiver; it is not reported as verified. No new native/runtime dependency.
 
+
+Final integration regression rechecked after Phase 5: domain suite 9/9, typecheck and controlled browser scenarios pass; live-endpoint override remains explicit.

@@ -9,7 +9,7 @@ covered_files:
   - src/components/MatchCard.tsx
   - src/hooks/useFavorites.ts
   - src/screens/MatchesScreen.tsx
-covered_digest: v3:sha256:aa3194beadd7d7e6b1daf2ebc24d416c9e404b87884071f446587100d8cc8da3
+covered_digest: v3:sha256:1a983c6a9877b5aff42564268f8a75bea13874265984378716615e6b905aaa6a
 ---
 
 # Phase 3 Verification
@@ -20,3 +20,5 @@ npx tsc --noEmit and nine domain tests pass. Browser confirms eight inactive sta
 
 All scoped truths, including D-01 and D-02, checked against source and observed behavior. Inline review found no unresolved blocking source issue. Real endpoint remains unchanged and unavailable under the explicit user-authorized waiver; it is not reported as verified. No new native/runtime dependency.
 
+
+Final integration regression rechecked after Phase 5: domain suite 9/9, typecheck and controlled browser scenarios pass; live-endpoint override remains explicit.

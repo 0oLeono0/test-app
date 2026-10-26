@@ -12,15 +12,16 @@ Users can reliably inspect every match and toggle its favorite state, with corre
 
 ### Validated
 
-None yet — starter source is present, but runtime behavior has not been verified.
+- ✓ HTTP client, validated cards, initial loading/error/retry/empty states — Phase 1, controlled HTTP responses; live endpoint waived.
+- ✓ Three status filters with explicit live/postponed policy — Phase 2.
+- ✓ Independent immutable in-memory favorites across filters and refresh — Phase 3.
+- ✓ Manual refresh, retained data after failures, wall-clock freshness and interval cleanup — Phase 4.
+- ✓ Nine domain tests, passing types, integrated browser checks and Russian SOLUTION.md — Phase 5.
 
 ### Active
 
-- [ ] Load matches from MATCHES_URL and render teams, optional score, local kickoff time, and Russian statuses.
-- [ ] Provide loading, error with retry, empty results, and the three required filters.
-- [ ] Integrate independently toggled favorites and repair membership checks and state updates.
-- [ ] Refresh data and show accurate elapsed time since the last successful load.
-- [ ] Complete SOLUTION.md with concise, truthful explanations and verification evidence.
+- [ ] Resolve the real endpoint only if the user changes the explicit instruction to retain the placeholder; then verify live success.
+- [ ] Run on a real Expo Go device when available; no native-device success is claimed.
 
 ### Out of Scope
 
@@ -33,11 +34,11 @@ None yet — starter source is present, but runtime behavior has not been verifi
 
 Source of scope: README.md, supplied as `gsd-new-project --auto README.md` on 2026-10-26. README targets about one hour and a two-hour maximum for implementation; favor small changes and readable code over visual polish or infrastructure.
 
-Existing stack: expo ~57.0.29, React 19.2.3, React Native 0.86.3, react-native-web ^0.21.2, TypeScript ~6.0.3. App.tsx mounts MatchesScreen directly; the screen currently renders only a title. FavoriteButton already has active/onPress props and Russian accessibility labels. No router or domain types exist.
+Existing stack: expo ~57.0.29, React 19.2.3, React Native 0.86.3, react-native-web ^0.21.2, TypeScript ~6.0.3. App.tsx mounts MatchesScreen directly; it now composes useMatches, useFavorites, filters, MatchCard and UpdatedAgo. Domain types/validation/formatting live in src/matches.ts. No router or new runtime dependency was introduced.
 
 Data fixture contains eight matches: three finished, one live, three scheduled, and one postponed. Important cases are a 0–0 score, null scores, a null kickoff, a live minute, long club names, and UTC timestamps. Status, rather than today's date, determines filtering: fixture dates can be in the past while status remains scheduled.
 
-Observed bugs: useFavorites treats indexOf's -1 as true and index 0 as false, mutates its array with push/splice, and sets the same reference. UpdatedAgo captures initial seconds in an empty-dependency effect, ignores since, and does not clean up its interval. These are source findings, not claims of completed fixes.
+Starter defects were repaired: useFavorites now uses includes and functional immutable updates; UpdatedAgo measures elapsed wall-clock time, responds to since and cleans up its interval. Browser checks verified independent/rapid toggles, preserved favorites, timer progression/reset and clock jumps. react-native-web needed explicit aria-pressed in addition to the native selection state; this was found by a browser assertion.
 
 MATCHES_URL contains the literal OWNER/REPO placeholder. README says not to change the address. Do not invent a real URL, silently replace remote loading with bundled data, or mark live loading verified; identify the authoritative endpoint before final remote validation. Use the supplied fixture through intercepted HTTP responses for deterministic behavior checks.
 
@@ -59,6 +60,7 @@ MATCHES_URL contains the literal OWNER/REPO placeholder. README says not to chan
 | Adaptive model profile | Explicit user selection; retain profile for future GSD work | Selected |
 | No optional PR-body sections | Minimal default for a small assignment; no preference supplied | Default |
 | Keep MATCHES_URL unchanged despite HTTP 404 | User explicitly chose to record the endpoint gap on 2026-10-26 | Confirmed; live loading unresolved |
+| Treat live endpoint check as non-blocking | User explicitly approved continuing all remaining phases with this exception | Accepted override; never reported as live success |
 | Filters: scheduled → upcoming; finished → finished; live/postponed → All only | Avoid implying a live or postponed match is scheduled; document this agent-selected policy in SOLUTION.md | Proposed |
 | Retain React state and platform primitives | Scope does not justify a state manager or query framework | Proposed |
 
@@ -67,4 +69,12 @@ MATCHES_URL contains the literal OWNER/REPO placeholder. README says not to chan
 At each phase transition, move verified requirements to Validated, record new decisions, move invalidated scope to Out of Scope with reasons, and update this description if behavior changes. At milestone close, review all sections, recheck the core value and exclusions, and record the delivered state and remaining limitations.
 
 ---
-*Last updated: 2026-10-26 after initialization*
+*Last updated: 2026-10-26 after v1.0 implementation milestone*
+
+## Current State
+
+v1.0 local implementation complete: five phases, five plans, seven tasks; 19 requirements verified and one accepted live-verification override. Nine domain tests and typecheck pass; controlled browser integration checks cover the required flows. No public deployment, submission or remote push occurred.
+
+## Next Milestone Goals
+
+No new feature milestone requested. Possible follow-up: authoritative URL, real Expo Go device verification and repository-hosted browser regressions.
