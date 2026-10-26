@@ -26,7 +26,10 @@ Deliver the README assignment as five compact vertical MVP slices, using the sel
 3. Valid kickoff times display in the device timezone, and long names remain readable in a narrow viewport.
 4. Pending, failed, and empty responses show distinct loading, error/retry, and empty states; retry can recover to the list.
 5. Production loading still uses MATCHES_URL; its placeholder endpoint is explicitly resolved or reported as a remaining validation blocker.
-**Plans:** TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 01-01-PLAN.md — Validated HTTP-to-card tracer, recoverable request states, and browser verification.
 
 ### Phase 2: Filter the Round
 **Goal:** User can narrow the displayed round by status without losing exceptional matches from All.
