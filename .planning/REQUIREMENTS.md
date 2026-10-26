@@ -39,9 +39,9 @@
 
 ### Delivery and Understanding
 
-- [ ] **DOC-01**: Reviewer can read 1–3 sentences per reported problem in SOLUTION.md explaining the actual favorites and timer causes and fixes.
-- [ ] **DOC-02**: Reviewer can read the status-filter policy, data edge cases, actual time spent, completed/remaining work, AI usage and verification, and possible improvements in the existing SOLUTION.md template.
-- [ ] **VERIFY-01**: Reviewer can run the app with npm run web after npm install and see passing npx tsc --noEmit evidence; changes remain compatible with Expo Go and introduce no development-build-only native module.
+- [x] **DOC-01**: Reviewer can read 1–3 sentences per reported problem in SOLUTION.md explaining the actual favorites and timer causes and fixes.
+- [x] **DOC-02**: Reviewer can read the status-filter policy, data edge cases, actual time spent, completed/remaining work, AI usage and verification, and possible improvements in the existing SOLUTION.md template.
+- [x] **VERIFY-01**: Reviewer can run the app with npm run web after npm install and see passing npx tsc --noEmit evidence; changes remain compatible with Expo Go and introduce no development-build-only native module.
 
 ## v2 Requirements
 
@@ -89,9 +89,9 @@ Every v1 requirement maps to exactly one phase. All remain pending until impleme
 | REFRESH-01 | Phase 4 | Complete |
 | REFRESH-02 | Phase 4 | Complete |
 | REFRESH-03 | Phase 4 | Complete |
-| DOC-01 | Phase 5 | Pending |
-| DOC-02 | Phase 5 | Pending |
-| VERIFY-01 | Phase 5 | Pending |
+| DOC-01 | Phase 5 | Complete |
+| DOC-02 | Phase 5 | Complete |
+| VERIFY-01 | Phase 5 | Complete |
 
 **Coverage:** 20 v1 requirements; 20 mapped; 0 unmapped.
 

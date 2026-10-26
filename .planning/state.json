@@ -26,13 +26,13 @@
     {
       "number": "5",
       "name": "Verify and Explain",
-      "status": "pending"
+      "status": "complete"
     }
   ],
   "next": {
-    "command": "$gsd-progress --next",
-    "label": "Advance to the next step",
-    "reason": "Phase 5 of 5 · 80% · executing"
+    "command": "$gsd-new-milestone",
+    "label": "Start a new milestone",
+    "reason": "All phases complete — start a new milestone"
   },
-  "updated_at": "2026-10-26T11:54:51.497Z"
+  "updated_at": "2026-10-26T11:57:14.502Z"
 }

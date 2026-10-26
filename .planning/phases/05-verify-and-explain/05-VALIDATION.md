@@ -1,17 +1,15 @@
 ---
 phase: "5"
 slug: verify-and-explain
-status: draft
-nyquist_compliant: false
+status: validated
+nyquist_compliant: true
 wave_0_complete: true
 created: "2026-10-26"
 ---
 
-# Phase 5 Validation
+# Phase 5 Validation Evidence
 
-Quick: npx tsc --noEmit. Full domain suite: node --test tests/matches.test.mjs. Existing Node 24 runner needs no packages. Run types/domain tests after each implementation task, and browser checks before completing the phase. Failure means nonzero exit, failed assertions, missing expected controls or incorrect observed states.
+Final npx tsc --noEmit passes; node --test tests/matches.test.mjs reports 9 passed / 0 failed. Combined fresh-browser regression at America/New_York and 360px passes loading, all eight cards/sixteen names, 0–0/null kickoff, filters 8/3/3, HTTP/network/JSON/shape failures, retry recovery, empty state and favorite preservation during refresh. body/document widths are 360; zero pageerror events. Phase 4 separately verified timer wall-clock behavior, failure retention, duplicate protection and timeout recovery. git diff from baseline on src/config.ts is empty. All original SOLUTION headings are filled in Russian, with actual bug causes, selected optional filter test, AI corrections and honest real-feed/native limitations.
 
-Run npx tsc --noEmit, node --test tests/matches.test.mjs and combined Playwright scenarios. Inspect browser screenshot and console. git diff --exit-code 833dddb -- src/config.ts must be zero. Confirm all SOLUTION template headings filled and test evidence matches actual output.
-
-No watch-mode commands. Existing domain test infrastructure covers Wave 0. Browser verification is performed with intercepted responses and recorded separately from the accepted unavailable real feed. Expo Go device validation remains unperformed unless a real session becomes available.
+Types/domain commands completed successfully. Browser checks use controlled HTTP responses; unchanged real-feed 404 is explicitly waived for progression. Expo Go device test was not performed.
 

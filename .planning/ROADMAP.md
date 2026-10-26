@@ -10,7 +10,7 @@ Deliver the README assignment as five compact vertical MVP slices, using the sel
 - [x] **Phase 2: Filter the Round** — Three status filters with explicit edge-case behavior. (completed 2026-10-26)
 - [x] **Phase 3: Reliable Favorites** — Independent, visible favorite toggles across filters. (completed 2026-10-26)
 - [x] **Phase 4: Refresh and Freshness** — Manual refresh and accurate time since successful loading. (completed 2026-10-26)
-- [ ] **Phase 5: Verify and Explain** — Combined behavior checks and concise SOLUTION.md.
+- [x] **Phase 5: Verify and Explain** — Combined behavior checks and concise SOLUTION.md. (completed 2026-10-26)
 
 ## Phase Details
 
@@ -104,7 +104,7 @@ Plans:
 | 2. Filter the Round | 1/1 | Complete    | 2026-10-26 |
 | 3. Reliable Favorites | 1/1 | Complete    | 2026-10-26 |
 | 4. Refresh and Freshness | 1/1 | Complete    | 2026-10-26 |
-| 5. Verify and Explain | 0/TBD | Not started | - |
+| 5. Verify and Explain | 1/1 | Complete    | 2026-10-26 |
 
 ## Coverage
 
