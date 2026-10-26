@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { MatchCard } from '../components/MatchCard';
 import { useMatches } from '../hooks/useMatches';
+import { useFavorites } from '../hooks/useFavorites';
 import { type MatchFilter, filterMatches } from '../matches';
 
 const filters: { value: MatchFilter; label: string }[] = [
@@ -13,6 +14,7 @@ const filters: { value: MatchFilter; label: string }[] = [
 export function MatchesScreen() {
   const { state, retry } = useMatches();
   const [filter, setFilter] = useState<MatchFilter>('all');
+  const { favorites, isFavorite, toggle } = useFavorites();
 
   return (
     <View style={styles.container}>
@@ -52,7 +54,10 @@ export function MatchesScreen() {
           <FlatList
             data={filterMatches(state.data.matches, filter)}
             keyExtractor={(match) => match.id}
-            renderItem={({ item }) => <MatchCard match={item} />}
+            extraData={favorites}
+            renderItem={({ item }) => (
+              <MatchCard match={item} favorite={isFavorite(item.id)} onToggleFavorite={() => toggle(item.id)} />
+            )}
             contentContainerStyle={styles.listContent}
             ListEmptyComponent={
               <View style={styles.message}>

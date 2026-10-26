@@ -1,10 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { type Match, formatKickoff, formatScore, getStatusLabel } from '../matches';
+import { FavoriteButton } from './FavoriteButton';
 
-export function MatchCard({ match }: { match: Match }) {
+type Props = { match: Match; favorite: boolean; onToggleFavorite: () => void };
+
+export function MatchCard({ match, favorite, onToggleFavorite }: Props) {
   return (
     <View style={styles.card}>
-      <Text style={styles.status}>{getStatusLabel(match.status)}</Text>
+      <View style={styles.header}>
+        <Text style={styles.status}>{getStatusLabel(match.status)}</Text>
+        <FavoriteButton active={favorite} onPress={onToggleFavorite} matchLabel={`${match.home.name} — ${match.away.name}`} />
+      </View>
       <View style={styles.team}>
         <Text style={styles.role}>Хозяева</Text>
         <Text style={styles.name}>{match.home.name}</Text>
@@ -26,7 +32,8 @@ const styles = StyleSheet.create({
     padding: 16, gap: 8, borderWidth: 1, borderColor: '#d1d5db',
     borderRadius: 12, backgroundColor: '#f9fafb', marginBottom: 12,
   },
-  status: { fontSize: 14, lineHeight: 20, fontWeight: '600', color: '#111827' },
+  header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
+  status: { fontSize: 14, lineHeight: 20, fontWeight: '600', color: '#111827', flexShrink: 1 },
   team: { gap: 4, minWidth: 0 },
   role: { fontSize: 14, lineHeight: 20, color: '#4b5563' },
   name: { fontSize: 16, lineHeight: 24, fontWeight: '600', color: '#111827', flexShrink: 1 },
